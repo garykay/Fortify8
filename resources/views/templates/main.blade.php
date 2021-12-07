@@ -38,6 +38,10 @@
                         <div>
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 @auth
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('user.profile') }}">Profile</a>
+                                    </li>
                                     <li class="nav-item"> <a class="nav-link" href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                     </li>
@@ -64,34 +68,37 @@
     @can('logged-in')
 
 
-    <nav class="navbar sub-nav navbar-expand-lg">
-        <div class="container">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ url('/') }}">Home</a>
-                    </li>
-                    @can('is-admin')
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.users.index') }}">User</a>
-                    </li>
-                    @endcan
-                </ul>
+        <nav class="navbar sub-nav navbar-expand-lg">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Get the users name -->
 
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{ url('/') }}">Home</a>
+                        </li>
+                        @can('is-admin')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.users.index') }}">User</a>
+                            </li>
+                        @endcan
+                    </ul>
+
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
     @endcan
 
-        <div class="container rw-container">
-            <div class="row">
-                <main>
-                    @include('partials.alerts')
-                    @yield('content')
-                </main>
-            </div>
+
+    <div class="container rw-container">
+        <div class="row">
+            <main>
+                @include('partials.alerts')
+                @yield('content')
+            </main>
         </div>
+    </div>
 
     <!-- js -->
     <script src="{{ asset('js/app.js') }}"></script>
