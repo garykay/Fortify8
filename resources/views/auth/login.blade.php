@@ -27,5 +27,7 @@
         <button class="btn btn-primary" type="submit">Login</button>
     </form>
 
+    <a href="{{route('password.request')}}">Forgotten Your Password</a>
+
 
 @endsection
