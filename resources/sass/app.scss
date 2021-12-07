@@ -1,0 +1,53 @@
+@import "~bootstrap/scss/bootstrap";
+
+$navBar: #1E2632;
+$background: #f7f8f9 !default;
+$text: #1e1e1f !default;
+
+body {
+    background: $background;
+    color: $text;
+}
+
+.navbar {
+    background: $navBar;
+
+    a {
+        color: #fff;
+    }
+}
+
+.sub-nav {
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(204, 204, 204, 0.3);
+    a {
+        color: #000;
+    }
+}
+
+.card {
+    margin-top: 30px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(204, 204, 204, 0.8);
+    margin-bottom: 30px;
+    padding: 20px;
+
+    .table {
+        border-radius: 5px;
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    }
+}
+
+.rw-container {
+    margin-top: 30px;
+}
+
