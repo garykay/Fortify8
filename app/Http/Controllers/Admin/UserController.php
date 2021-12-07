@@ -6,6 +6,7 @@ use App\Actions\Fortify\CreateNewUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
 use App\Models\Role;
@@ -59,6 +60,8 @@ class UserController extends Controller
         $user = $newUser->create($request->only('name', 'email', 'password', 'password_confirmation'));
 
         $user->roles()->sync($request->roles);
+
+        Password::sendResetLink($request->only(['email']));
 
         $request->session()->flash('success', 'User created successfully.');
 
