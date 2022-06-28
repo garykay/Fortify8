@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Admin\UserController;
+use Admin\PostController;
 use User\Profile;
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,5 @@ Route::prefix('user')->middleware(['auth', 'verified'])->name('user.')->group(fu
 //Admin routes
 Route::prefix('admin')->middleware(['auth', 'auth.isAdmin', 'verified'])->name('admin.')->group(function () {
     Route::resource('admin/users', UserController::class);
+    Route::resource('admin/posts', PostController::class);
 });
